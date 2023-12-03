@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nongguin.model.dao.PaymentDao">
+	<insert id="payForMatch" parameterType="Payment">
+		INSERT INTO payment(paymentAmount, paymentStatus, paymentDate,
+		paymentImpUid, userId, matchId)
+		VALUES(#{paymentAmount},"결제완료",#{paymentDate},#{paymentImpUid},#{userId},#{matchId})
+
+	</insert>
+	<select id="searchPrePayment" parameterType="Payment"
+		resultType="Payment">
+		SELECT *
+		FROM payment
+		WHERE matchId = #{matchId} AND paymentImpUid = #{paymentImpUid}
+		ORDER BY paymentDate DESC
+		LIMIT 1
+	</select>
+	<select id="getPaymentByMatchIdAndUserId"
+		parameterType="Payment" resultType="Payment">
+		SELECT *
+		FROM payment
+		WHERE matchId=#{matchId} AND userId =#{userId}
+		ORDER BY paymentDate DESC
+		LIMIT 1
+	</select>
+
+	<insert id="cancel" parameterType="Payment">
+		INSERT INTO payment(paymentAmount, paymentStatus, paymentDate,
+		paymentImpUid, userId, matchId)
+		VALUES(#{paymentAmount},"결제취소",DATE(now()),#{paymentImpUid},#{userId},#{matchId})
+	</insert>
+</mapper>

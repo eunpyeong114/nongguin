@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nongguin.model.dao.Match_UserDao">
+	<insert id="insertData" parameterType="int">
+		INSERT INTO match_user(matchId, userId)
+		VALUES (#{matchId},#{userId})
+	</insert>
+	
+	<select id="getMatchIdByUserId" parameterType="int">
+		SELECT *
+		FROM match_user
+		WHERE userId = #{userId}
+	</select>
+	<delete id="deleteMatch" parameterType="int">
+		DELETE FROM match_user
+		WHERE matchId=#{matchId} AND userId = #{userId}
+	</delete>
+</mapper>
