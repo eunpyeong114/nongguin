@@ -1,5 +1,7 @@
 package com.nongguin.model.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,24 @@ public class ReviewServiceImpl implements ReviewService {
 		if (result > 0)
 			return true;
 		return false;
+	}
+
+	@Override
+	public Boolean modifyReview(Review review) {
+		int result = reviewDao.modifyReview(review);
+		if(result>0)
+			return true;
+		return false;
+	}
+
+	@Override
+	public List<Review> getReviewsByCourtId(int courtId) {
+		return reviewDao.getReviewsByCourtId(courtId);
+	}
+
+	@Override
+	public Review getReviewByPaymentId(int paymentId) {
+		return reviewDao.getReviewByPaymentId(paymentId);
 	}
 
 }
