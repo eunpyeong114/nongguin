@@ -168,11 +168,15 @@
 
 ![매치목록](/assets/matchlist.gif)
 
-### 매치디테일, 신청
+### 매치디테일
 
 ![매치디테일](/assets/matchdetail.gif)
 
-### 결제 취소
+### 매치 신청 (결제)
+
+![결제](/assets/payment.gif)
+
+### 매치 취소 (결제 취소)
 
 ![결제취소](/assets/cancelpay.gif)
 
