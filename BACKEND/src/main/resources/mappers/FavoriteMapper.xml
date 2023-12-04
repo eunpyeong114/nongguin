@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nongguin.model.dao.FavoriteDao">
+	<insert id="registFavorite" parameterType="Favorite">
+		INSERT INTO favorite(courtId,userId)
+		VALUES(#{courtId},#{userId})
+	</insert>
+	
+	<delete id="cancelFavorite" parameterType="Favorite">
+		DELETE FROM favorite
+		WHERE courtId=#{courtId} AND userId=#{userId}
+	</delete>
+	
+	<select id="getFavoritesByUserId" parameterType="int" resultType="Court">
+		SELECT favorite f
+		join court c
+		WHERE f.userId=#{userId}
+	</select>
+</mapper>
