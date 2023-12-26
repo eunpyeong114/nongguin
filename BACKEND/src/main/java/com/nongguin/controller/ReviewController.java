@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/review")
-@Api("리뷰 컨트롤러")
+@Api(tags="리뷰 컨트롤러")
 public class ReviewController {
 
 	@Autowired
