@@ -12,5 +12,8 @@ public interface PaymentDao {
 	Payment searchPrePayment(Payment payment);
 
 	int cancel(Payment payment);
+	
+	// paymentId 조회
+	Payment getPaymentId(int userId, int matchId);
 
 }
