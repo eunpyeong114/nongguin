@@ -31,4 +31,12 @@
 		paymentImpUid, userId, matchId)
 		VALUES(#{paymentAmount},"결제취소",DATE(now()),#{paymentImpUid},#{userId},#{matchId})
 	</insert>
+	
+	<select id="getPaymentId" parameterType="int" resultType="Payment">
+		SELECT *
+		FROM payment
+		WHERE userId = #{userId} AND matchId=#{matchId}
+		ORDER BY paymentDate DESC
+		LIMIT 1
+	</select>
 </mapper>
