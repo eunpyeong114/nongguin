@@ -178,10 +178,10 @@ public class PaymentServiceImpl implements PaymentService {
 	public boolean checkCancel(Payment payment) throws IOException {
 		// 해당 결제 금액 및 impuid 가져오기
 		Payment paidInfo = paymentDao.getPaymentByMatchIdAndUserId(payment);
-		if(paidInfo==null|| paidInfo.getPaymentStatus().equals("결제취소"))
+		if (paidInfo == null || paidInfo.getPaymentStatus().equals("결제취소"))
 			return false;
-		System.out.println("payment:"+payment);
-		System.out.println("painInfo:"+paidInfo);
+		System.out.println("payment:" + payment);
+		System.out.println("painInfo:" + paidInfo);
 		int paymentAmount = paidInfo.getPaymentAmount();
 		String impUid = paidInfo.getPaymentImpUid();
 		// 토큰 발급받기
@@ -238,6 +238,11 @@ public class PaymentServiceImpl implements PaymentService {
 		}
 		conn.disconnect();
 		return true;
+	}
+
+	@Override
+	public Payment getPaymentId(int userId, int matchId) {
+		return paymentDao.getPaymentId(userId, matchId);
 	}
 
 }
