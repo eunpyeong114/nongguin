@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/favorite")
-@Api("찜 컨트롤")
+@Api(tags = "찜 컨트롤")
 public class FavoriteController {
 
 	@Autowired
@@ -53,8 +53,8 @@ public class FavoriteController {
 	@ApiOperation("찜한 목록들 조회하기")
 	public ResponseEntity<?> getFavorites(@PathVariable int userId) {
 		List<Court> result = favoriteService.getFavoritesByUserId(userId);
-		if(result==null ||result.size()==0)
+		if (result == null || result.size() == 0)
 			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
-		return new ResponseEntity<List<Court>>(result,HttpStatus.OK);
+		return new ResponseEntity<List<Court>>(result, HttpStatus.OK);
 	}
 }
