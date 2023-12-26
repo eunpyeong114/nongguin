@@ -22,9 +22,12 @@ import myMatch from "@/components/mypage/myMatch.vue";
 import myResMatch from "@/components/mypage/myResMatch.vue";
 import mypageFriendReq from "@/components/mypage/mypageFriendReq.vue";
 
+// review components
+import reviewRegist from "@/components/review/ReviewRegist.vue";
+
 //router
 const router = createRouter({
-  mode: 'history',
+  mode: "history",
   history: createWebHistory(import.meta.env.BASE_URL),
   scrollBehavior() {
     return { top: 0 };
@@ -110,11 +113,15 @@ const router = createRouter({
         },
       ],
     },
+    {
+      path: "/review",
+      name: "reviewRegist",
+      component: reviewRegist,
+    },
   ],
   scrollBehavior() {
-    return { top:0, behavior: 'instant' };
-  }
-  
+    return { top: 0, behavior: "instant" };
+  },
 });
 
 export default router;
