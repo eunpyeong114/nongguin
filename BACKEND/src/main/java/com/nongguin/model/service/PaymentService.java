@@ -14,4 +14,6 @@ public interface PaymentService {
 	boolean checkPaid(Payment payment) throws IOException, Exception;
 
 	boolean checkCancel(Payment payment) throws IOException;
+
+	Payment getPaymentId(int userId, int matchId);
 }
